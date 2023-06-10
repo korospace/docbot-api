@@ -70,7 +70,7 @@ class TokenGenerator:
         """
 
         payload = {
-            "exp": datetime.now(timezone.utc) + timedelta(days=1),
+            "exp": datetime.now(),
             "id": str(user.id),
         }
         token = jwt.encode(payload, os.environ.get("SECRET_KEY"), algorithm="HS256")

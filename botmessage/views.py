@@ -6,7 +6,7 @@ from botmessage.service import send_message, get_message_history
 
 class Message(Resource):
     @token_required
-    @staticmethod
+    # @staticmethod
     def post() -> Response:
         """
         POST response method for send message to bot.
@@ -19,7 +19,7 @@ class Message(Resource):
         return make_response(response, status)
 
     @token_required
-    @staticmethod
+    # @staticmethod
     def get() -> Response:
         """
         GET response method for listing message history with bot.
