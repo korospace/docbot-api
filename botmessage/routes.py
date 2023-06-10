@@ -5,4 +5,4 @@ def create_botmessage_routes(api: Api):
     """Adds resources to the api.
     :param api: Flask-RESTful Api Object
     """
-    api.add_resource(Message, "/api/botmessage/send/")
+    api.add_resource(Message, "/api/botmessage/message/")
