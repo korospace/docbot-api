@@ -75,7 +75,7 @@ def login_user(request, input_data):
                 "id": get_user.id,
                 "email": get_user.email,
                 "username": get_user.username,
-                "exp": datetime.datetime.utcnow() + datetime.timedelta(minutes=30),
+                "exp": datetime.datetime.utcnow() + datetime.timedelta(days=1),
             },
             environ.get("SECRET_KEY"),
         )

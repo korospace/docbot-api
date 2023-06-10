@@ -56,6 +56,8 @@ def remove_null_attr(data=None):
     for key, value in list(data.items()):
         if value is None:
             del data[key]
+        # elif isinstance(value, dict):
+        #     del_none(value)
 
     return data
 
@@ -70,7 +72,7 @@ class TokenGenerator:
         """
 
         payload = {
-            "exp": datetime.now(),
+            "exp": datetime.now(timezone.utc) + timedelta(days=1),
             "id": str(user.id),
         }
         token = jwt.encode(payload, os.environ.get("SECRET_KEY"), algorithm="HS256")
