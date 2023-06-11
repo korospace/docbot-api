@@ -10,6 +10,7 @@ class CreateSignupInputSchema(Schema):
     # the 'required' argument ensures the field exists
     email     = fields.Email(required=True, validate=validate.Length(min=4,max=80))
     full_name = fields.Str(required=True, validate=validate.Length(min=4,max=100))
+    birthdate = fields.Str(required=True, validate=validate.Length(min=10,max=10))
     gender    = fields.Str(required=True, validate=validate.OneOf(['laki-laki','perempuan']))
     username  = fields.Str(required=True, validate=validate.Length(min=4,max=64))
     password  = fields.Str(required=True, validate=validate.Length(min=6,max=100))

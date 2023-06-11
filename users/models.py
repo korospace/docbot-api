@@ -13,6 +13,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email     = db.Column(db.String(80),  index=True, unique=True, nullable=False)
     full_name = db.Column(db.String(100), nullable=False)
+    birthdate = db.Column(db.String(10),  nullable=False)
     gender    = db.Column(db.Enum('laki-laki', 'perempuan'),  nullable=False)
     username  = db.Column(db.String(64),  index=True, unique=True, nullable=False)
     password  = db.Column(db.String(500), nullable=False)
@@ -25,6 +26,7 @@ class User(db.Model):
         """
         self.email     = kwargs.get("email")
         self.full_name = kwargs.get("full_name")
+        self.birthdate = kwargs.get("birthdate")
         self.gender    = kwargs.get("gender")
         self.username  = kwargs.get("username")
         self.password  = kwargs.get("password")
