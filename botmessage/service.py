@@ -31,6 +31,7 @@ def send_message(request, input_data):
 def get_message_history(request):
 
     message_history = BotMessages.query.filter_by(userId=request.environ.get('data_token')['id']).all()
+    db.session.commit()
 
     messages_list = [{'id': message.id, 'userId': message.userId, 'question': message.question, 'answer': message.answer, 'created': message.created} for message in message_history]
 
