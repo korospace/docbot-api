@@ -16,7 +16,7 @@ def send_message(request, input_data):
 
     input_data['userId']   = request.environ.get('data_token')['id']
     input_data['question'] = input_data.get('message')
-    input_data['answer']   = 'jawaban sementara'
+    input_data['answer']   = 'maaf, saya belum memahami maksud anda'
     input_data['created']  = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
     del input_data["message"]
 
