@@ -5,18 +5,6 @@ from botmessage.validation import SendMessageSchema
 from botmessage.models import BotMessages
 from utils.http_code import HTTP_200_OK, HTTP_400_BAD_REQUEST
 from utils.common import generate_response
-from tensorflow.keras.models import load_model
-model = load_model('model_ai/my_model.h5')
-
-def process_input(input_text):
-    # Update this function based on how your model expects input
-    # For example, if your model uses tokenized sentences, you would tokenize the input_text here
-    return input_text
-
-def generate_answer(question):
-    processed_question = process_input(question)
-    answer = model.predict([processed_question])[0]
-    return answer
 
 def send_message(request, input_data):
 
@@ -28,7 +16,7 @@ def send_message(request, input_data):
 
     input_data['userId']   = request.environ.get('data_token')['id']
     input_data['question'] = input_data.get('message')
-    input_data['answer']   = generate_answer(input_data.get('message'))
+    input_data['answer']   = 'maaf, saya belum memahami maksud anda'
     input_data['created']  = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
     del input_data["message"]
 
